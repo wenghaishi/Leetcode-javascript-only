@@ -35,8 +35,11 @@ const MonacoEditor = (props) => {
   const handleRunCode = () => {
     try {
       const transformedCode = Babel.transform(value, { presets: ["env"] }).code;
-      const output = eval(transformedCode);
-      setOutput(output);
+      let output = eval(transformedCode);
+      if (Array.isArray(output)) {
+        output = "[" + output.join(", ") + "]"
+      }
+      setOutput(`${output}`);
     } catch (error) {
       console.error(error);
     }
@@ -69,7 +72,7 @@ const MonacoEditor = (props) => {
   return (
     <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
       {/* nav component */}
-      <nav className="flex flex-row items-center justify-between px-4 mb-8 w-full h-16 border-b-2 shadow-sm">
+      <nav className="flex flex-row items-center justify-between px-4 w-full h-16 border-b-2 shadow-sm">
         <Link to="/" className="">
           <img src="/code.png" className="h-10" />
         </Link>
@@ -133,11 +136,11 @@ const MonacoEditor = (props) => {
       </Resizable>
 
       <div className="bg-slate-200 h-20 flex flex-col items-center justify-evenly w-full">
-        Output: {output}
+        Output:  {output}
       </div>
       <button
         onClick={handleRunCode}
-        className="bg-gray-500 text-white py-4 px-12 mr-4 rounded-lg mt-4 hover:bg-gray-600"
+        className="bg-gray-500 text-white py-4 px-12 mr-4 rounded-lg mt-4 hover:bg-gray-600 mb-12"
       >
         Run code
       </button>
