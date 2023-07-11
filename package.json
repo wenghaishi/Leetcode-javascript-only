@@ -13,7 +13,8 @@
     "@monaco-editor/react": "^4.5.1",
     "monaco-editor": "^0.40.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vm2": "^3.9.19"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
