@@ -28,6 +28,17 @@ function App() {
       difficulty: "Easy",
       code: "\nconst num = 121\nconst isPalindrome = function(x) {\n // write your code here\n}\nisPalindrome(num)"
     },
+    {
+      id: 3,
+      title: "Longest Palindromic Substring",
+      description:
+        "Given a string s, return the longest palindromic substring in s.",
+      example: [
+        "Input: s = 'babad'\nOutput: 'bab'\nExplanation: 'aba' is also a valid answer.",
+      ],
+      difficulty: "Medium",
+      code: "\nconst s = 'babad'\nconst longestPalindrome = function(s) {\n // write your code here\n}\nlongestPalindrome(s)"
+    },
   ];
   return (
     <Routes>

@@ -4,7 +4,7 @@ const Question = ({ question }) => {
 
   const difficultyClasses = {
     Easy: "text-green-500",
-    Medium: "text-orange-400",
+    Medium: "text-orange-300",
     Hard: "text-red-500",
   };
 
