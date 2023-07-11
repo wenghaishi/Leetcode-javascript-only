@@ -1,12 +1,11 @@
 import "./App.css";
+import Landing from "./components/Landing";
 import MonacoEditor from "./components/MonacoEditor";
 function App() {
 
 
   return (
-    <div>
-      <MonacoEditor/>
-    </div>
+    <Landing />
   );
 }
 
