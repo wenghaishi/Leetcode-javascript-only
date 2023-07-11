@@ -1,6 +1,7 @@
 import Editor from "@monaco-editor/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const MonacoEditor = (props) => {
   const [value, setValue] = useState();
@@ -42,11 +43,11 @@ const MonacoEditor = (props) => {
       </div>
       <button
         onClick={handleRunCode}
-        className="bg-gray-500 text-white py-4 px-8 rounded-lg mt-4 hover:bg-gray-600"
+        className="bg-gray-500 text-white py-4 px-8 mr-4 rounded-lg mt-4 hover:bg-gray-600"
       >
         Run code
       </button>
-
+      <Link to="/" className="bg-gray-500 text-white py-4 px-8 mr-4 rounded-lg mt-4 hover:bg-gray-600">Home</Link>
     </div>
   );
 };
