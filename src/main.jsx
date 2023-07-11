@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     domain={import.meta.env.VITE_DOMAIN}
     clientId={import.meta.env.VITE_CLIENTID}
     authorizationParams={{
-      redirect_uri: "https://leetcode-javascript-only.vercel.app/"
+      redirect_uri: "https://leetcode-javascript-only.vercel.app"
     }}
   >
     <Router>
