@@ -10,9 +10,18 @@
   background-color: #edf2f7;
   padding: 16px;
   transition: width;
+  cursor: ew-resize;
 }
 
 .editor-container {
   background-color: #f7fafc;
   padding: 16px;
+}
+
+.border {
+  cursor: e-resize;
+}
+
+.content {
+  cursor: default;
 }

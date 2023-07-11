@@ -92,7 +92,7 @@ const MonacoEditor = (props) => {
       >
         <div
           id="container"
-          className="flex flex-row"
+          className="flex flex-row "
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
         >
@@ -101,14 +101,23 @@ const MonacoEditor = (props) => {
             style={{ width: `${width}px` }}
             onMouseDown={handleMouseDown}
           >
-            <h1 className="text-xl font-bold">{currentQuestion.title}</h1>
-            <p className="text-left px-2 my-4">{currentQuestion.description}</p>
-            <h2 className="text-left font-bold px-2 pb-2">Example</h2>
-            <p className="text-left display-linebreak px-2">{currentQuestion.example}</p>
+            <div className="content">
+              <h1 className="text-xl font-bold">{currentQuestion.title}</h1>
+              <p className="text-left px-2 my-4">
+                {currentQuestion.description}
+              </p>
+              <h2 className="text-left font-bold px-2 pb-2">Example</h2>
+              <p className="text-left display-linebreak px-2">
+                {currentQuestion.example}
+              </p>
+            </div>
           </div>
           {/* end of question component */}
 
-          <div className="editor-container" style={{ width: `calc(100% - ${width}px)` }}>
+          <div
+            className="editor-container"
+            style={{ width: `calc(100% - ${width}px)` }}
+          >
             <Editor
               height="66vh"
               width="100%"
