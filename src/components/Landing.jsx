@@ -9,7 +9,7 @@ const Landing = (props) => {
         <h1 className="text-5xl font-bold text-gray-700 mr-4">
           LeetCode Javascript ONLY
         </h1>
-        <img src="/dog.svg" className="h-16" />
+        <img src="/code.png" className="h-16" />
       </div>
 
       <div className="flex flex-col items-center mt-10">

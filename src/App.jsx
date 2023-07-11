@@ -26,7 +26,7 @@ function App() {
         "Input: x = 121.\n\nOutput: true. \n\nExplanation: 121 reads as 121 from left to right and from right to left.",
       ],
       difficulty: "Easy",
-      code: "\nconst num = 12321\nconst isPalindrome = function(x) {\n // write your code here\n}\nisPalindrome(num)"
+      code: "\nconst num = 121\nconst isPalindrome = function(x) {\n // write your code here\n}\nisPalindrome(num)"
     },
   ];
   return (
