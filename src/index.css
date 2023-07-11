@@ -5,3 +5,14 @@
 .display-linebreak {
   white-space: pre-line;
 }
+
+.question-container {
+  background-color: #edf2f7;
+  padding: 16px;
+  transition: width;
+}
+
+.editor-container {
+  background-color: #f7fafc;
+  padding: 16px;
+}

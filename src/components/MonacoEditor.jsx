@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import * as Babel from "@babel/standalone";
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./Profile";
-
+import { Resizable } from "react-resizable";
+import "react-resizable/css/styles.css";
 
 const MonacoEditor = (props) => {
   const [value, setValue] = useState();
@@ -45,40 +46,82 @@ const MonacoEditor = (props) => {
   const questions = props.questions;
   const currentQuestion = questions[id - 1];
 
+  const [dragging, setDragging] = useState(false);
+  const [width, setWidth] = useState(500); // Initial width of the resizable component
+
+  const handleMouseDown = (e) => {
+    setDragging(true);
+  };
+
+  const handleMouseUp = (e) => {
+    setDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (dragging) {
+      const containerWidth = document.getElementById("container").offsetWidth;
+      const mouseX = e.pageX;
+      const newWidth = Math.max(200, Math.min(containerWidth - 200, mouseX));
+      setWidth(newWidth);
+    }
+  };
+
   return (
     <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
       {/* nav component */}
-      <nav className="flex flex-row items-center justify-between px-4 mb-8 w-full h-16  border-b-2 shadow-sm">
+      <nav className="flex flex-row items-center justify-between px-4 mb-8 w-full h-16 border-b-2 shadow-sm">
         <Link to="/" className="">
           <img src="/code.png" className="h-10" />
         </Link>
         <div className="flex flex-row">
-          <button onClick={handleToggleTheme} className="mr-4">Toggle editor theme</button>
+          <button onClick={handleToggleTheme} className="mr-4">
+            Toggle editor theme
+          </button>
           <Profile />
         </div>
       </nav>
       {/* end of nav component */}
 
-      <div className="flex flex-row">
-        <div className="w-1/2 bg-slate-100 p-6">
-          <h1 className=" text-xl font-bold ">{currentQuestion.title}</h1>
-          <p className="text-left	 px-2 my-4">{currentQuestion.description}</p>
-          <h2 className="text-left font-bold px-2 pb-2">Example</h2>
-          <p className="text-left display-linebreak px-2">
-            {currentQuestion.example}
-          </p>
+      {/* start of question component */}
+      <Resizable
+        width={width}
+        height={Infinity}
+        onResizeStop={(event, data) => setWidth(data.size.width)} // Update the width when resizing stops
+        minConstraints={[400, Infinity]} // Minimum width of the resizable component
+        maxConstraints={[800, Infinity]} // Maximum width of the resizable component
+      >
+        <div
+          id="container"
+          className="flex flex-row"
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+        >
+          <div
+            className="question-container"
+            style={{ width: `${width}px` }}
+            onMouseDown={handleMouseDown}
+          >
+            <h1 className="text-xl font-bold">{currentQuestion.title}</h1>
+            <p className="text-left px-2 my-4">{currentQuestion.description}</p>
+            <h2 className="text-left font-bold px-2 pb-2">Example</h2>
+            <p className="text-left display-linebreak px-2">{currentQuestion.example}</p>
+          </div>
+          {/* end of question component */}
+
+          <div className="editor-container" style={{ width: `calc(100% - ${width}px)` }}>
+            <Editor
+              height="66vh"
+              width="100%"
+              defaultLanguage="javascript"
+              defaultValue={`${currentQuestion.code}`}
+              value={value}
+              onChange={handleEditorChange}
+              theme={theme}
+              options={editorOptions}
+            />
+          </div>
         </div>
-        <Editor
-          height="66vh"
-          width={`100%`}
-          defaultLanguage="javascript"
-          defaultValue={`${currentQuestion.code}`}
-          value={value}
-          onChange={handleEditorChange}
-          theme={theme}
-          options={editorOptions}
-        />
-      </div>
+      </Resizable>
 
       <div className="bg-slate-200 h-20 flex flex-col items-center justify-evenly w-full">
         Output: {output}
@@ -92,4 +135,5 @@ const MonacoEditor = (props) => {
     </div>
   );
 };
+
 export default MonacoEditor;
