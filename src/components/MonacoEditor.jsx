@@ -37,7 +37,7 @@ const MonacoEditor = (props) => {
       const transformedCode = Babel.transform(value, { presets: ["env"] }).code;
       let output = eval(transformedCode);
       if (Array.isArray(output)) {
-        output = "[" + output.join(", ") + "]"
+        output = "[" + output.join(", ") + "]";
       }
       setOutput(`${output}`);
     } catch (error) {
@@ -135,15 +135,16 @@ const MonacoEditor = (props) => {
         </div>
       </Resizable>
 
-      <div className="bg-slate-200 h-20 flex flex-col items-center justify-evenly w-full">
-        Output:  {output}
+      <div className="bg-slate-200 h-24 flex flex-row items-center justify-between px-12 w-full">
+        <button
+          onClick={handleRunCode}
+          className="bg-gray-500 text-white py-4 px-12 rounded-lg hover:bg-gray-600"
+        >
+          Run code
+        </button>
+        <h1 className="mr-12 text-xl font-mono">Output: {output}</h1>
+        <div></div>
       </div>
-      <button
-        onClick={handleRunCode}
-        className="bg-gray-500 text-white py-4 px-12 mr-4 rounded-lg mt-4 hover:bg-gray-600 mb-12"
-      >
-        Run code
-      </button>
     </div>
   );
 };
