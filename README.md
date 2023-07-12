@@ -1,6 +1,15 @@
 # Leetcode-javascript-only
 
 This is a leetcode clone where users can solve coding problems. But the only language it supports is javascript.
-<img width="1012" alt="Screenshot 2023-07-12 at 1 21 58 AM" src="https://github.com/wenghaishi/Leetcode-javascript-only/assets/74546450/e9407b44-10fc-41a7-8c95-31fc804f39c9">
+It has three questions for registered and unregistered users to test their coding skills.
 
-<img width="1362" alt="Screenshot 2023-07-12 at 1 20 57 AM" src="https://github.com/wenghaishi/Leetcode-javascript-only/assets/74546450/7214f9d4-966a-4fc5-8f41-07ac1637e358">
+User authentication: Auth0.
+<br />
+In app code editor: Monaco.
+<br />
+Javascript framework: React
+<br />
+
+<img width="1440" alt="Screenshot 2023-07-12 at 8 27 04 PM" src="https://github.com/wenghaishi/Leetcode-javascript-only/assets/74546450/9853d4ac-ee8a-4e3e-80ea-0f7a122e3863">
+<br />
+<img width="1440" alt="Screenshot 2023-07-12 at 8 28 11 PM" src="https://github.com/wenghaishi/Leetcode-javascript-only/assets/74546450/7c70979b-2644-4425-a5b5-d329cf3e30c5">
