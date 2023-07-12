@@ -2,6 +2,7 @@ import "./App.css";
 import Landing from "./components/Landing";
 import { Route, Routes } from "react-router-dom";
 import MonacoEditor from "./components/MonacoEditor";
+import UserPage from "./components/UserPage";
 
 function App() {
   const questions = [
@@ -15,7 +16,7 @@ function App() {
       ],
       difficulty: "Easy",
       code: "\nconst arr = [2, 7, 11, 15]\nconst target = 9\nconst twoSum = function(arr, target) {\n // write your code here\n}\ntwoSum(arr, target)",
-      testOutput: [0,1]
+      testOutput: [0, 1],
     },
 
     {
@@ -40,13 +41,14 @@ function App() {
       ],
       difficulty: "Medium",
       code: "\nconst s = 'babbd'\nconst longestPalindrome = function(s) {\n // write your code here\n}\nlongestPalindrome(s)",
-      testOutput: "bab"
+      testOutput: "bab",
     },
   ];
   return (
     <Routes>
-      <Route path="/" element={<Landing questions={questions}/>} />
-      <Route path="/:id" element={<MonacoEditor questions={questions}/>} />
+      <Route path="/" element={<Landing questions={questions} />} />
+      <Route path="/:id" element={<MonacoEditor questions={questions} />} />
+      <Route path="/user" element={<UserPage questions={questions} />} />
     </Routes>
   );
 }
