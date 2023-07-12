@@ -12,6 +12,7 @@ const MonacoEditor = (props) => {
   const [value, setValue] = useState();
   const [output, setOutput] = useState();
   const [darkMode, setDarkMode] = useState(false);
+  const [correct, setCorrect] = useState(false)
   const handleEditorChange = (value) => {
     setValue(value);
   };
@@ -38,8 +39,16 @@ const MonacoEditor = (props) => {
       let output = eval(transformedCode);
       if (Array.isArray(output)) {
         output = "[" + output.join(", ") + "]";
+        output = output.replace(" ", "")
       }
       setOutput(`${output}`);
+      console.log(output)
+      console.log(currentQuestion.testOutput)
+      if (output == JSON.stringify(currentQuestion.testOutput) || output == currentQuestion.testOutput) {
+        setCorrect(true)
+      } else {
+        setCorrect(false)
+      }
     } catch (error) {
       console.error(error);
     }
@@ -143,7 +152,7 @@ const MonacoEditor = (props) => {
           Run code
         </button>
         <h1 className="mr-12 text-xl font-mono">Output: {output}</h1>
-        <div></div>
+        <div>{correct? <h1 className="text-xl font-mono text-green-500">Test passed</h1> : <h1 className="text-xl font-mono text-red-600">Test failed</h1>}</div>
       </div>
     </div>
   );

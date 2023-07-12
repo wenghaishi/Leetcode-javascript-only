@@ -14,7 +14,8 @@ function App() {
         "Input: nums = [2, 7, 11, 15],\n\ntarget = 9,\n\nOutput: [0, 1]\n\nExplanation: Because nums[0] + nums[1] == 9, we return [0, 1]",
       ],
       difficulty: "Easy",
-      code: "\nconst arr = [2, 7, 11, 15]\nconst target = 9\nconst twoSum = function(arr, target) {\n // write your code here\n}\ntwoSum(arr, target)"
+      code: "\nconst arr = [2, 7, 11, 15]\nconst target = 9\nconst twoSum = function(arr, target) {\n // write your code here\n}\ntwoSum(arr, target)",
+      testOutput: [0,1]
     },
 
     {
@@ -26,7 +27,8 @@ function App() {
         "Input: x = 121.\n\nOutput: true. \n\nExplanation: 121 reads as 121 from left to right and from right to left.",
       ],
       difficulty: "Easy",
-      code: "\nconst num = 121\nconst isPalindrome = function(x) {\n // write your code here\n}\nisPalindrome(num)"
+      code: "\nconst num = 121\nconst isPalindrome = function(x) {\n // write your code here\n}\nisPalindrome(num)",
+      testOutput: true,
     },
     {
       id: 3,
@@ -34,10 +36,11 @@ function App() {
       description:
         "Given a string s, return the longest palindromic substring in s.",
       example: [
-        "Input: s = 'babad'\nOutput: 'bab'\nExplanation: 'aba' is also a valid answer.",
+        "Input: s = 'babbd'\nOutput: 'bab'\nExplanation: 'bab' is the longest palaindromic substring",
       ],
       difficulty: "Medium",
-      code: "\nconst s = 'babad'\nconst longestPalindrome = function(s) {\n // write your code here\n}\nlongestPalindrome(s)"
+      code: "\nconst s = 'babbd'\nconst longestPalindrome = function(s) {\n // write your code here\n}\nlongestPalindrome(s)",
+      testOutput: "bab"
     },
   ];
   return (
