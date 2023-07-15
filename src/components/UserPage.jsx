@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import Profile from "./Profile";
-import { useAuth0 } from "@auth0/auth0-react";
+
 
 const UserPage = () => {
-  const { user, isAuthenticated } = useAuth0();
-  const { logout } = useAuth0();
+
   return (
     <>
       {/* nav component */}
@@ -12,23 +10,6 @@ const UserPage = () => {
         <Link to="/" className="">
           <img src="/code.png" className="h-10" />
         </Link>
-        <div className="flex flex-row">
-          {isAuthenticated && (
-            <button
-              className="mr-4"
-              onClick={() =>
-                logout({
-                  logoutParams: {
-                    returnTo: "https://leetcode-javascript-only.vercel.app/",
-                  },
-                })
-              }
-            >
-              Log Out
-            </button>
-          )}
-          <Profile />
-        </div>
       </nav>
       {/* end of nav component */}
 

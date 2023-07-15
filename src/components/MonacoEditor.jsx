@@ -3,8 +3,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import * as Babel from "@babel/standalone";
-import { useAuth0 } from "@auth0/auth0-react";
-import Profile from "./Profile";
 import { Resizable } from "react-resizable";
 import "react-resizable/css/styles.css";
 
@@ -17,7 +15,6 @@ const MonacoEditor = (props) => {
     setValue(value);
   };
 
-  const { user } = useAuth0();
 
   const editorOptions = {
     selectOnLineNumbers: true,
@@ -89,7 +86,6 @@ const MonacoEditor = (props) => {
           <button onClick={handleToggleTheme} className="mr-4">
             Toggle editor theme
           </button>
-          <Profile />
         </div>
       </nav>
       {/* end of nav component */}
