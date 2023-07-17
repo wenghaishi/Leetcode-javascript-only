@@ -12,7 +12,7 @@ const Login = ({ showLogin }) => {
   const [nameError, setNameError] = useState(false);
   const [signup, setSignup] = useState(false);
 
-  function validateEmail(email) {
+  const validateEmail= (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
@@ -28,7 +28,7 @@ const Login = ({ showLogin }) => {
       setNameError(true);
     }
     const user = { email, password, confirmPassword, name };
-    
+
   };
 
   const handleLogin = () => {

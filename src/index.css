@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.customOpacity {
-  opacity: 1;
-}
-
 .display-linebreak {
   white-space: pre-line;
 }

@@ -25,7 +25,7 @@ const Landing = (props) => {
 
       <div className="flex flex-row w-full items-center justify-center">
         <h1 className="text-5xl font-bold text-gray-700 mr-4">
-          LeetCode Javascript ONLY
+          Javascript Leetcode
         </h1>
         <img src="/code.png" className="h-16" />
       </div>

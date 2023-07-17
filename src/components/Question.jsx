@@ -11,7 +11,7 @@ const Question = ({ question }) => {
   const color = difficultyClasses[difficulty];
 
   return (
-    <Link to={`/${id}`} className="flex flex-row w-4/6 h-20 m-2 bg-slate-300 items-center justify-between px-6 hover:bg-slate-200">
+    <Link to={`/coding/${id}`} className="flex flex-row w-4/6 h-20 m-2 bg-slate-300 items-center justify-between px-6 hover:bg-slate-200">
       <div className="flex flex-row items-center">
         <h1 className="text-2xl pr-4">{id}</h1>
         <h1 className="text-xl">{title}</h1>

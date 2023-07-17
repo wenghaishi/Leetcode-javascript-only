@@ -3,6 +3,7 @@ import Landing from "./components/Landing";
 import { Route, Routes } from "react-router-dom";
 import MonacoEditor from "./components/MonacoEditor";
 import UserPage from "./components/UserPage";
+import Choices from "./components/Choices";
 
 function App() {
   const questions = [
@@ -46,8 +47,9 @@ function App() {
   ];
   return (
     <Routes>
-      <Route path="/" element={<Landing questions={questions} />} />
-      <Route path="/:id" element={<MonacoEditor questions={questions} />} />
+      <Route path="/" element={<Choices questions={questions} />} />
+      <Route path="/coding" element={<Landing questions={questions} />} />
+      <Route path="/coding/:id" element={<MonacoEditor questions={questions} />} />
       <Route path="/user" element={<UserPage questions={questions} />} />
     </Routes>
   );
